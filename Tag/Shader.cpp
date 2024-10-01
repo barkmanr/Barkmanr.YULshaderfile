@@ -8,6 +8,8 @@ Shader::Shader()
 	infoLogLength = 0;
 	attrWVP = 0;
 	atrrColors = 0;
+	attrTexCoords = 0;
+	sampler1 = 0;
 }
 
 Shader::~Shader()
@@ -51,6 +53,8 @@ void Shader::LoadAttributes()
 {
 	attrVertices = glGetAttribLocation(programID, "vertices");
 	atrrColors = glGetAttribLocation(programID, "colors");
+	attrTexCoords = glGetAttribLocation(programID, "texCoords");
+	sampler1 = glGetUniformLocation(programID, "sampler1");
 	attrWVP = glGetUniformLocation(programID, "WVP");
 }
 

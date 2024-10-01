@@ -12,10 +12,12 @@ public:
 	GLuint GetProgramID() { return programID; }
 	GLuint GetAttrVertices() { return attrVertices; }
 	GLuint GetAttrColors() { return atrrColors; }
+	GLuint GetAttrTexCoords() { return attrTexCoords; }
+	GLuint GetSampler1() { return sampler1;  }
+	GLuint GetAttrWVP() { return attrWVP; }
 
 	void LoadShaders(const char* _vertexFilePath, const char* _fragmentFilePath);
 	void Cleanup();
-	GLuint GetAttrWVP() { return attrWVP; }
 
 private:
 	void CreateShaderProgram(const char* _vertexFilePath, const char* _fragmentFilePath);
@@ -26,6 +28,8 @@ private:
 	GLuint programID;
 	GLuint attrVertices;
 	GLuint atrrColors;
+	GLuint attrTexCoords;
+	GLuint sampler1;
 	GLuint attrWVP;
 	GLint result;
 	int infoLogLength;

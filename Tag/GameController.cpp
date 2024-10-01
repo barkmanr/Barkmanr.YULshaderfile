@@ -42,7 +42,7 @@ void GameController::Initialize()
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f); //RGBA
 	glEnable(GL_CULL_FACE);
 
-	cameras.push_back(new Camera(WindowController::Instance().GetResolution(), glm::vec3(0, 0, 200)));
+	cameras.push_back(new Camera(WindowController::Instance().GetResolution(), glm::vec3(100, 100, 100)));
 	cameras.push_back(new Camera(WindowController::Instance().GetResolution()));
 	cameras.push_back(new Camera(WindowController::Instance().GetResolution(), glm::vec3(-1, -5, 3)));
 	curentCamera = 0;

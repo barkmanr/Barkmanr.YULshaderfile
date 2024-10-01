@@ -2,6 +2,8 @@
 #define MESH_H
 
 #include "StandardIncludes.h"
+
+class Texture;
 class Shader;
 
 class Mesh //Shape
@@ -27,11 +29,16 @@ public:
 
 private:
 	Shader* shader;
+	Texture* texture;
 	GLuint vertexBuffer;
 	GLuint indexBuffer;
 	vector<GLfloat> m_vertexData; //Points
 	vector<GLubyte> indexData;
+
 	glm::mat4 world;
+	glm::vec3 position;
+	glm::vec3 rotation;
+
 	bool isClean;
 	float lastScaler;
 	float deltaTime;
