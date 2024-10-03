@@ -6,6 +6,7 @@ Mesh::Mesh()
 {
 	shader = nullptr;
 	texture = nullptr;
+	texture2 = nullptr;
 	vertexBuffer = 0;
 	isClean = true;
 	indexBuffer = 0;
@@ -20,6 +21,12 @@ Mesh::~Mesh()
 	if (texture != nullptr) 
 	{
 		delete texture;
+		texture = nullptr;
+	}
+	if (texture2 != nullptr)
+	{
+		delete texture2;
+		texture2 = nullptr;
 	}
 }
 
@@ -38,6 +45,9 @@ void Mesh::Create(Shader* _shader)
 	shader = _shader;
 	texture = new Texture();
 	texture->LoadTexture("../Assets/Textures/DeVito.jpg");
+
+	texture2 = new Texture();
+	texture2->LoadTexture("../Assets/Textures/Tacos.jpg");
 
 	isClean = false;
 
@@ -94,9 +104,14 @@ void Mesh::Render(glm::mat4 mvp)
 
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, texture->GetTexture());
 	glUniform1i(shader->GetSampler1(), 0);
+
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, texture2->GetTexture());
+	glUniform1i(shader->GetSampler2(), 1);
 
 	glDrawElements(GL_TRIANGLES, indexData.size(), GL_UNSIGNED_BYTE, (void*)0); //Shape
 	glDisableVertexAttribArray(shader->GetAttrVertices());

@@ -30,6 +30,7 @@ public:
 private:
 	Shader* shader;
 	Texture* texture;
+	Texture* texture2;
 	GLuint vertexBuffer;
 	GLuint indexBuffer;
 	vector<GLfloat> m_vertexData; //Points
