@@ -16,6 +16,7 @@ public:
 	GLuint GetSampler1() { return sampler1;  }
 	GLuint GetSampler2() { return sampler2; }
 	GLuint GetAttrWVP() { return attrWVP; }
+	GLuint GetAttrItemAdd() { return attrItemAdd; }
 
 	void LoadShaders(const char* _vertexFilePath, const char* _fragmentFilePath);
 	void Cleanup();
@@ -33,6 +34,7 @@ private:
 	GLuint sampler1;
 	GLuint sampler2;
 	GLuint attrWVP;
+	GLuint attrItemAdd;
 	GLint result;
 	int infoLogLength;
 

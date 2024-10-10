@@ -19,13 +19,7 @@ public:
 	void Render(glm::mat4 wvp);
 
 	void UpdateVertex(float x, float y); //bonus
-
-	void setBlack();
-	void setNormal();
 	void setBuffers();
-
-	void Scale();
-
 
 private:
 	Shader* shader;
@@ -39,6 +33,7 @@ private:
 	glm::mat4 world;
 	glm::vec3 position;
 	glm::vec3 rotation;
+	glm::vec2 stroll;
 
 	bool isClean;
 	float lastScaler;

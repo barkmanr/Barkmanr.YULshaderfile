@@ -43,8 +43,6 @@ void GameController::Initialize()
 	glEnable(GL_CULL_FACE);
 
 	cameras.push_back(new Camera(WindowController::Instance().GetResolution(), glm::vec3(100, 100, 100)));
-	cameras.push_back(new Camera(WindowController::Instance().GetResolution()));
-	cameras.push_back(new Camera(WindowController::Instance().GetResolution(), glm::vec3(-1, -5, 3)));
 	curentCamera = 0;
 }
 
@@ -91,8 +89,8 @@ void GameController::HandleKeys()
 
 void GameController::RunGame()
 {
-	Tag::ToolWindow^ wind = gcnew Tag::ToolWindow(); //Side window
-	wind->Show();
+	Tag::ToolWindow^ sidewind = gcnew Tag::ToolWindow(); //Side window
+	sidewind->Show();
 
 	shader = new Shader();
 	shader->LoadShaders("SVS.vertexShader", "SFS.fragmentshader");

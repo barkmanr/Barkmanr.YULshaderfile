@@ -10,6 +10,7 @@ Shader::Shader()
 	atrrColors = 0;
 	attrTexCoords = 0;
 	sampler1 = 0;
+	attrItemAdd = 0;
 }
 
 Shader::~Shader()
@@ -54,6 +55,7 @@ void Shader::LoadAttributes()
 	attrVertices = glGetAttribLocation(programID, "vertices");
 	atrrColors = glGetAttribLocation(programID, "colors");
 	attrTexCoords = glGetAttribLocation(programID, "texCoords");
+	attrItemAdd = glGetAttribLocation(programID, "itemAdd");
 	sampler1 = glGetUniformLocation(programID, "sampler1");
 	sampler2 = glGetUniformLocation(programID, "sampler2");
 	attrWVP = glGetUniformLocation(programID, "WVP");
