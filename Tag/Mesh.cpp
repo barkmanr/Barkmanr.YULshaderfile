@@ -55,9 +55,9 @@ void Mesh::Create(Shader* _shader)
 
 	m_vertexData = //points of triangle
 	{  //x,   y,     z       r,    g,    b,        texcoords
-		50.0f, 50.0f, 0.0f,		1.0f, 1.0f, 1.0f,	 1.0f, 1.0f,
-		50.0f, -50.0f, 0.0f,	1.0f, 1.0f, 1.0f,	 1.0f, 0.0f,
-		-50.0f, -50.0f, 0.0f,	1.0f, 1.0f, 1.0f,	 0.0f, 0.0f,
+		50.0f, 50.0f, 0.0f,		1.0f, 0.0f, 0.0f,	 1.0f, 1.0f,
+		50.0f, -50.0f, 0.0f,	0.0f, 1.0f, 0.0f,	 1.0f, 0.0f,
+		-50.0f, -50.0f, 0.0f,	0.0f, 0.0f, 1.0f,	 0.0f, 0.0f,
 		-50.0f, 50.0f, 0.0f,	1.0f, 1.0f, 1.0f,	 0.0f, 1.0f
 	};
 	
@@ -66,6 +66,7 @@ void Mesh::Create(Shader* _shader)
 		2,0,3,	2,1,0,
 		2,3,0,	2,0,1
 	};
+	glm::mat3 tes = { 0,0,0,1,1,1,2,2,2, };
 
 	setBuffers();
 }
