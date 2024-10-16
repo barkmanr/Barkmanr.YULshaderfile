@@ -104,12 +104,12 @@ void GameController::RunGame()
 
 		//tool window stuff
 		GLint location = 0;
-		location = glGetUniformLocation(shader->GetProgramID(), "RenderRedChannel");
-		glUniform1i(location, (int)Tag::ToolWindow::RenderRedChannel);
-		location = glGetUniformLocation(shader->GetProgramID(), "RenderGreenChannel");
-		glUniform1i(location, (int)Tag::ToolWindow::RenderGreenChannel);
-		location = glGetUniformLocation(shader->GetProgramID(), "RenderBlueChannel");
-		glUniform1i(location, (int)Tag::ToolWindow::RenderBlueChannel);
+		location = glGetUniformLocation(shader->GetProgramID(), "RenderValueY");
+		glUniform1i(location, Tag::ToolWindow::RenderValueY);
+		location = glGetUniformLocation(shader->GetProgramID(), "RenderValueU");
+		glUniform1i(location, Tag::ToolWindow::RenderValueU);
+		location = glGetUniformLocation(shader->GetProgramID(), "RenderValueV");
+		glUniform1i(location, Tag::ToolWindow::RenderValueV);
 
 		glClear(GL_COLOR_BUFFER_BIT);
 		mesh->Render(cameras[curentCamera]->GetProjection() * cameras[curentCamera]->GetView()); //p * v * w

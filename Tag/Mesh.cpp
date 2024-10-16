@@ -49,15 +49,15 @@ void Mesh::Create(Shader* _shader)
 	texture->LoadTexture("../Assets/Textures/DeVito.jpg");
 
 	texture2 = new Texture();
-	texture2->LoadTexture("../Assets/Textures/Tacos.jpg");
+	texture2->LoadTexture("../Assets/Textures/Checkerboard.jpg");
 
 	isClean = false;
 
 	m_vertexData = //points of triangle
 	{  //x,   y,     z       r,    g,    b,        texcoords
-		50.0f, 50.0f, 0.0f,		1.0f, 0.0f, 0.0f,	 1.0f, 1.0f,
-		50.0f, -50.0f, 0.0f,	0.0f, 1.0f, 0.0f,	 1.0f, 0.0f,
-		-50.0f, -50.0f, 0.0f,	0.0f, 0.0f, 1.0f,	 0.0f, 0.0f,
+		50.0f, 50.0f, 0.0f,		1.0f, 1.0f, 1.0f,	 1.0f, 1.0f,
+		50.0f, -50.0f, 0.0f,	1.0f, 1.0f, 1.0f,	 1.0f, 0.0f,
+		-50.0f, -50.0f, 0.0f,	1.0f, 1.0f, 1.0f,	 0.0f, 0.0f,
 		-50.0f, 50.0f, 0.0f,	1.0f, 1.0f, 1.0f,	 0.0f, 1.0f
 	};
 	
