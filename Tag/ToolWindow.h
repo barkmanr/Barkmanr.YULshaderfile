@@ -16,9 +16,10 @@ namespace Tag {
 		//static bool RenderGreenChannel;
 		//static bool RenderBlueChannel;
 
-		static float RenderValueY;
-		static float RenderValueU;
-		static float RenderValueV;
+		static int RenderValueY;
+		static int RenderValueU;
+		static int RenderValueV;
+		static bool Invert;
 
 	private: System::Windows::Forms::TrackBar^ TY;
 	private: System::Windows::Forms::TrackBar^ TU;
@@ -28,6 +29,7 @@ namespace Tag {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ labelY;
 	private: System::Windows::Forms::Label^ labelU;
+	private: System::Windows::Forms::CheckBox^ Inverter;
 	private: System::Windows::Forms::Label^ labelV;
 	public:
 
@@ -43,9 +45,10 @@ namespace Tag {
 			RenderValueY = TY->Value;
 			RenderValueU = TU->Value;
 			RenderValueV = TV->Value;
-			labelY->Text = TY->Value.ToString();
-			labelU->Text = TU->Value.ToString();
-			labelV->Text = TV->Value.ToString();
+			labelY->Text = TY->Value.ToString() + "%";
+			labelU->Text = TU->Value.ToString() + "%";
+			labelV->Text = TV->Value.ToString() + "%";
+			Invert = Inverter->Checked;
 		}
 
 	protected:
@@ -82,6 +85,7 @@ namespace Tag {
 			this->labelY = (gcnew System::Windows::Forms::Label());
 			this->labelU = (gcnew System::Windows::Forms::Label());
 			this->labelV = (gcnew System::Windows::Forms::Label());
+			this->Inverter = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->TY))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->TU))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->TV))->BeginInit();
@@ -172,11 +176,23 @@ namespace Tag {
 			this->labelV->TabIndex = 20;
 			this->labelV->Text = L"label4";
 			// 
+			// Inverter
+			// 
+			this->Inverter->AutoSize = true;
+			this->Inverter->Location = System::Drawing::Point(20, 190);
+			this->Inverter->Name = L"Inverter";
+			this->Inverter->Size = System::Drawing::Size(85, 17);
+			this->Inverter->TabIndex = 21;
+			this->Inverter->Text = L"Invert Colors";
+			this->Inverter->UseVisualStyleBackColor = true;
+			this->Inverter->CheckedChanged += gcnew System::EventHandler(this, &ToolWindow::Inverter_CheckedChanged);
+			// 
 			// ToolWindow
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(785, 247);
+			this->ClientSize = System::Drawing::Size(776, 247);
+			this->Controls->Add(this->Inverter);
 			this->Controls->Add(this->labelV);
 			this->Controls->Add(this->labelU);
 			this->Controls->Add(this->labelY);
@@ -224,20 +240,24 @@ private: System::Void TY_Scroll(System::Object^ sender, System::EventArgs^ e)
 private: System::Void TY_ValueChanged(System::Object^ sender, System::EventArgs^ e) 
 {
 	RenderValueY = TY->Value;
-	labelY->Text = TY->Value.ToString();
+	labelY->Text = TY->Value.ToString() + "%";
 }
 private: System::Void TU_ValueChanged(System::Object^ sender, System::EventArgs^ e) 
 {
 	RenderValueU = TU->Value;
-	labelU->Text = TU->Value.ToString();
+	labelU->Text = TU->Value.ToString() + "%";
 }
 
 private: System::Void TV_ValueChanged(System::Object^ sender, System::EventArgs^ e) 
 {
 	RenderValueV = TV->Value;
-	labelV->Text = TV->Value.ToString();
+	labelV->Text = TV->Value.ToString() + "%";
 }
 
+private: System::Void Inverter_CheckedChanged(System::Object^ sender, System::EventArgs^ e) 
+{
+	Invert = Inverter->Checked;
+}
 };
 
 }

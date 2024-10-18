@@ -39,7 +39,7 @@ void GameController::Initialize()
 	GLFWwindow* window = WindowController::Instance().GetWindow();
 	M_ASSERT(glewInit() == GLEW_OK, "Failed to initialize GLEW.");
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-	glClearColor(1.0f, 1.0f, 1.0f, 0.0f); //RGBA
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f); //RGBA
 	glEnable(GL_CULL_FACE);
 
 	cameras.push_back(new Camera(WindowController::Instance().GetResolution(), glm::vec3(100, 100, 100)));
@@ -110,6 +110,8 @@ void GameController::RunGame()
 		glUniform1i(location, Tag::ToolWindow::RenderValueU);
 		location = glGetUniformLocation(shader->GetProgramID(), "RenderValueV");
 		glUniform1i(location, Tag::ToolWindow::RenderValueV);
+		location = glGetUniformLocation(shader->GetProgramID(), "Invert");
+		glUniform1i(location, Tag::ToolWindow::Invert);
 
 		glClear(GL_COLOR_BUFFER_BIT);
 		mesh->Render(cameras[curentCamera]->GetProjection() * cameras[curentCamera]->GetView()); //p * v * w

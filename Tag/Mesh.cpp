@@ -46,7 +46,7 @@ void Mesh::Create(Shader* _shader)
 {
 	shader = _shader;
 	texture = new Texture();
-	texture->LoadTexture("../Assets/Textures/DeVito.jpg");
+	texture->LoadTexture("../Assets/Textures/Tacos.jpg");
 
 	texture2 = new Texture();
 	texture2->LoadTexture("../Assets/Textures/Checkerboard.jpg");
@@ -66,7 +66,6 @@ void Mesh::Create(Shader* _shader)
 		2,0,3,	2,1,0,
 		2,3,0,	2,0,1
 	};
-	glm::mat3 tes = { 0,0,0,1,1,1,2,2,2, };
 
 	setBuffers();
 }
